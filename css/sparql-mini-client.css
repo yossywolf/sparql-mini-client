@@ -1,0 +1,8 @@
+body{
+    margin-bottom: 5em;
+}
+
+#sparql-result-response {
+    height: 50em;
+    overflow-y: scroll;
+}

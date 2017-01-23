@@ -9,6 +9,7 @@
         <!--Import materialize.css-->
         <link type="text/css" rel="stylesheet" href="css/normalize.css"  media="screen,projection"/>
         <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+        <link type="text/css" rel="stylesheet" href="css/sparql-mini-client.css"  media="screen,projection"/>
 
         <!--Let browser know website is optimized for mobile-->
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -16,6 +17,7 @@
         <!--Import jQuery before materialize.js-->
         <script type="text/javascript" src="js/jquery.min.js"></script>
         <script type="text/javascript" src="js/materialize.min.js"></script>
+        <script type="text/javascript" src="js/sparql-mini-client.js"></script>
     </head>
 
     <body>
@@ -34,7 +36,7 @@
                 <form id="sparql-query-form">
                     <div class="row">
                         <div class="input-field col s12">
-                        <input value="http://lod.per.c.fun.ac.jp:8080/sparql?default-graph-uri=http://localhost:8080/DAV/hakodate_sweets&query=" id="sparql-input-url" type="text" class="validate">
+                        <input value="http://lod.per.c.fun.ac.jp:8080/sparql?default-graph-uri=http://localhost:8080/DAV/hakodate_sweets&format=json&query=" id="sparql-input-url" type="text" class="validate">
                         <label for="sparql-input-url">URL(この後にURLエンコードされたクエリーが続きます)</label>
                         </div>
                     </div>
@@ -47,20 +49,22 @@
                 </form>
 
                 <div class="row center">
-                    <a href="javascript:void(0);" onclick="submitQuery()" id="download-button" class="btn-large waves-effect waves-light orange">送信</a>
-                    <a href="javascript:void(0);" onclick="clearQuery()" id="download-button" class="btn-large waves-effect waves-light orange lighten-3">クリア</a>
+                    <a href="javascript:void(0);" onclick="submitQuery();" class="btn-large waves-effect waves-light orange">送信</a>
+                    <a href="javascript:void(0);" onclick="clearQuery();" class="btn-large waves-effect waves-light orange lighten-3">クリア</a>
                 </div>
-
-                <hr />
                 
                 <h2>実行結果</h2>
-
-                <h3>URL</h3>
-                <div class="sparql-result-url"></div>
-
-                <h3>レスポンス</h3>
-                <div class="sparql-result-response"></div>
-
+                <div class="row right">
+                    <a href="javascript:void(0);" onclick="clearResult()" class="btn waves-effect waves-light orange lighten-3">クリア</a>
+                </div>
+                <div class="row">
+                    <h3>URL</h3>
+                    <div id="sparql-result-url" class="card-panel">「送信」を押すとここにURLが表示されます。</div>
+                </div>
+                <div class="row">
+                    <h3>レスポンス</h3>
+                    <pre id="sparql-result-response" class="card-panel">「送信」を押すとここにレスポンスのJSONが表示されます。</pre>
+                </div>
 
             </div>
         </div>
