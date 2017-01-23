@@ -54,6 +54,7 @@
                 </div>
                 
                 <h2>実行結果</h2>
+                <p>送信時間: <span id="sparql-submit-time"></span></p>
                 <div class="row right">
                     <a href="javascript:void(0);" onclick="clearResult()" class="btn waves-effect waves-light orange lighten-3">クリア</a>
                 </div>
@@ -63,9 +64,9 @@
                 </div>
                 <div class="row">
                     <h3>レスポンス</h3>
+                    <p>JSONPなので今のところContent-Typeが "application/json" のようなものでないと「パースできません」と表示されます。</p>
                     <pre id="sparql-result-response" class="card-panel">「送信」を押すとここにレスポンスのJSONが表示されます。</pre>
                 </div>
-
             </div>
         </div>
     </body>
